@@ -1,0 +1,48 @@
+﻿@{
+	string page_title = ViewData["Title"] as string;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@page_title / ASPNETCore1 / GeekBrains</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link href="~/css/main.min.css" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/d668afcc00.js" crossorigin="anonymous"></script>
+	@RenderSection("HeadSection", required: false)
+</head>
+<body>
+
+	<header>
+		<div class="container">
+			<h1>Урок 1. Введение в ASP.NET Core</h1>
+		</div>
+	</header>
+
+	<div id="page_body">
+		<div class="container">
+			@if (ViewBag.HideToHome == null)
+			{<p><a href="@Url.Action("Index", "Home")"><i class="fas fa-home"></i>&nbsp;На главную</a></p>}
+
+			@if (!string.IsNullOrEmpty(page_title))
+			{<h2>@page_title</h2>}
+
+			@RenderBody()
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<b>GeekBrains / C# ASP.NET Core. Уровень 1</b><br />
+			Ковалевич Роман (октябрь, 2020)
+		</div>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="~/js/main.min.js"></script>
+	@RenderSection("ScriptsSection", required: false)
+</body>
+</html>

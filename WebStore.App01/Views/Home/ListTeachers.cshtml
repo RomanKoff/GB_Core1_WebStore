@@ -1,0 +1,36 @@
+﻿@using WebStore.App01.Models
+@model IEnumerable<TeacherModel>
+@{
+	ViewData["Title"] = "Список преподавателей";
+}
+
+@if (Model.Any())
+{
+	int i1 = 0;
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Фамилия имя и отчество</th>
+				<th>Дисциплина</th>
+				<th>Стаж (проф.)</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.OrderBy(x => x.FIO))
+			{
+				string url = Url.Action("TeacherDetails", null, new { id = item.ProId });
+				<tr>
+					<td>@(++i1).</td>
+					<td><a href="@url">@item.FIO</a></td>
+					<td>@item.TeachingDisciplines.FirstOrDefault()</td>
+					<td>@item.GenExperience (@item.SpecExperience)</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<p>Нет данных.</p>
+}

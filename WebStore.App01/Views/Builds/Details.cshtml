@@ -1,0 +1,13 @@
+﻿@using WebStore.App01.Models
+@model BuildModel
+@{
+	ViewData["Title"] = "Карточка корпуса";
+}
+
+<p><a href="@Url.Action("Index")"><i class="fas fa-arrow-left"></i>&nbsp;Обратно к списку</a></p>
+
+<h4>@Html.Raw(Model.Description)</h4>
+<p>Адрес: @Html.Raw(Model.Address)</p>
+<p>Описание: <a target="_blank" href="@Model.Url">@Html.Raw(Model.Url)</a></p>
+<p><a target="_blank" class="btn btn-success btn-lg" href="@Model.MapLink"><i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;Посмотреть на карте</a></p>
+

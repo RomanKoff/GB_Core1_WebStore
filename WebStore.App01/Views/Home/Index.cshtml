@@ -1,0 +1,8 @@
+﻿@{
+	ViewData["Title"] = "Навигация";
+	ViewBag.HideToHome = true;
+}
+<ul>
+	<li><a href="@Url.Action("ListTeachers")">Список преподавателей</a></li>
+	<li><a href="@Url.Action("Index", "Builds")">Корпуса университета</a></li>
+</ul>

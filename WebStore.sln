@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.App01", "WebStore.App01\WebStore.App01.csproj", "{184320F7-23B2-4C04-9414-F6AB3F93D1BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.App01", "WebStore.App01\WebStore.App01.csproj", "{184320F7-23B2-4C04-9414-F6AB3F93D1BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test01App", "Test01App\Test01App.csproj", "{42D41E0F-CA68-48FC-B749-0F8FF5BD2EDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Temp", "_Temp", "{BCE89464-45B6-43B9-937C-F10934507E30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{184320F7-23B2-4C04-9414-F6AB3F93D1BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{184320F7-23B2-4C04-9414-F6AB3F93D1BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{184320F7-23B2-4C04-9414-F6AB3F93D1BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D41E0F-CA68-48FC-B749-0F8FF5BD2EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D41E0F-CA68-48FC-B749-0F8FF5BD2EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D41E0F-CA68-48FC-B749-0F8FF5BD2EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D41E0F-CA68-48FC-B749-0F8FF5BD2EDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42D41E0F-CA68-48FC-B749-0F8FF5BD2EDB} = {BCE89464-45B6-43B9-937C-F10934507E30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCEAE0E1-441A-483B-9F60-41A726AA1A7B}
