@@ -1,3 +1,3 @@
-# GeekBrains / C# ASP.NET Core. Уровень 1
+# GeekBrains / C# ASP.NET Core. РЈСЂРѕРІРµРЅСЊ 1
 
-Урок 1. Введение в ASP.NET Core
+РЈСЂРѕРє 1. Р’РІРµРґРµРЅРёРµ РІ ASP.NET Core
