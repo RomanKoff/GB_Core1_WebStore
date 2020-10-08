@@ -1,1 +1,3 @@
-# GB_Core1_WebStore
+# GeekBrains / C# ASP.NET Core. ”ровень 1
+
+”рок 1. ¬ведение в ASP.NET Core
