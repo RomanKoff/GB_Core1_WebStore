@@ -1,0 +1,22 @@
+﻿<ul class="nav navbar-nav collapse navbar-collapse">
+	<li><a href="@Url.Action("Index")" class="active">Home</a></li>
+	<li class="dropdown">
+		<a href="#">Shop<i class="fa fa-angle-down"></i></a>
+		<ul role="menu" class="sub-menu">
+			<li><a href="@Url.Action("Shop")">Products</a></li>
+			<li><a href="@Url.Action("ProductDetails")">Product Details</a></li>
+			<li><a href="@Url.Action("Checkout")">Checkout</a></li>
+			<li><a href="@Url.Action("Cart")">Cart</a></li>
+			<li><a href="@Url.Action("Login")">Login</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a href="#">Blog<i class="fa fa-angle-down"></i></a>
+		<ul role="menu" class="sub-menu">
+			<li><a href="@Url.Action("Blog")">Blog List</a></li>
+			<li><a href="@Url.Action("BlogSingle")">Blog Single</a></li>
+		</ul>
+	</li>
+	<li><a href="@Url.Action("Error404")">404</a></li>
+	<li><a href="@Url.Action("ContactUs")">Contact</a></li>
+</ul>
