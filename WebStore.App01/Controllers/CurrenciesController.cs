@@ -5,28 +5,28 @@ using WebStore.App01.Models;
 namespace WebStore.App01.Controllers
 {
 
-	[Route("users")]
-	public class EmployeesController
-		: _CrudControllerPrototype<EmployeeModel>
+	[Route("currencies")]
+	public class CurrenciesController
+		: _CrudControllerPrototype<CurrencyModel>
 	{
 
-		public EmployeesController(
-			IRepositoryData<EmployeeModel> repository)
+		public CurrenciesController(
+			IRepositoryData<CurrencyModel> repository)
 			: base(repository)
 		{
 		}
 
 
 		[NonAction]
-		public override EmployeeModel GetNewEntity()
+		public override CurrencyModel GetNewEntity()
 		{
-			return new EmployeeModel();
+			return new CurrencyModel();
 		}
 
 
 		[NonAction]
 		public override int GetEntityId(
-			EmployeeModel model)
+			CurrencyModel model)
 		{
 			return model.Id;
 		}
@@ -34,14 +34,14 @@ namespace WebStore.App01.Controllers
 
 		[NonAction]
 		public override void CopyEntityContent(
-			EmployeeModel inModel,
-			EmployeeModel outModel)
+			CurrencyModel inModel,
+			CurrencyModel outModel)
 		{
-			outModel.FirstName = inModel.FirstName;
-			outModel.SurName = inModel.SurName;
-			outModel.Age = inModel.Age;
-			outModel.Patronymic = inModel.Patronymic;
-			outModel.Position = inModel.Position;
+			outModel.Char = inModel.Char;
+			outModel.Country = inModel.Country;
+			outModel.Name = inModel.Name;
+			outModel.Rate = inModel.Rate;
+			outModel.Unit = inModel.Unit;
 		}
 
 
@@ -63,7 +63,7 @@ namespace WebStore.App01.Controllers
 
 		[HttpPost]
 		[Route("edit/{id?}")]
-		public override IActionResult Edit(EmployeeModel model)
+		public override IActionResult Edit(CurrencyModel model)
 		{ return base.Edit(model); }
 
 

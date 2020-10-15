@@ -5,27 +5,27 @@
 
 <table class="table table-bordered">
 	<tr>
-		<td>Id</td>
+		<td><label asp-for="Id" class="control-label"></label></td>
 		<td>@Model.Id</td>
 	</tr>
 	<tr>
-		<td>Фамилия</td>
+		<td><label asp-for="SurName" class="control-label"></label></td>
 		<td>@Model.SurName</td>
 	</tr>
 	<tr>
-		<td>Имя</td>
+		<td><label asp-for="FirstName" class="control-label"></label></td>
 		<td>@Model.FirstName</td>
 	</tr>
 	<tr>
-		<td>Отчество</td>
+		<td><label asp-for="Patronymic" class="control-label"></label></td>
 		<td>@Model.Patronymic</td>
 	</tr>
 	<tr>
-		<td>Возраст</td>
+		<td><label asp-for="Age" class="control-label"></label></td>
 		<td>@Model.Age</td>
 	</tr>
 	<tr>
-		<td>Должность</td>
+		<td><label asp-for="Position" class="control-label"></label></td>
 		<td>@Model.Position</td>
 	</tr>
 </table>

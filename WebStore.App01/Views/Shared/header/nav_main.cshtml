@@ -19,5 +19,11 @@
 	</li>
 	<li><a href="@Url.Action("Error404")">404</a></li>
 	<li><a href="@Url.Action("ContactUs")">Contact</a></li>
-	<li><a href="@Url.Action("Index", "Employees")">Employees</a></li>
+	<li class="dropdown">
+		<a href="#" style="color:red; font-weight:bold;">Admin<i class="fa fa-angle-down"></i></a>
+		<ul role="menu" class="sub-menu">
+			<li><a href="@Url.Action("Index", "Employees")">Employees</a></li>
+			<li><a href="@Url.Action("Index", "Currencies")">Currencies</a></li>
+		</ul>
+	</li>
 </ul>

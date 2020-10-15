@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CurrencyModel>
+@{
+	ViewBag.PageTitle = "Список валют";
+}
+
+<p>
+	<a asp-action="Edit" class="btn btn-success">Добавить</a>
+</p>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th style="width:1%;">&nbsp;</th>
+			<th>Название</th>
+			<th>Единица</th>
+			<th>Курс</th>
+			<th style="width:1%;">&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+		<tr>
+			<td>
+				<a asp-action="Edit" asp-route-id="@item.Id" title="редактировать"><i class="text-success glyphicon glyphicon-edit"></i></a>
+			</td>
+			<td>
+				<a asp-action="Details" asp-route-id="@item.Id" title="просмотр">
+					@item.Name (@item.Country)
+				</a>
+			</td>
+			<td>@item.Char (@item.Unit)</td>
+			<td>@item.Rate (руб.)</td>
+			<td>
+				<a asp-action="Delete" asp-route-id="@item.Id" title="удалить"><i class="text-danger glyphicon glyphicon-trash"></i></a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

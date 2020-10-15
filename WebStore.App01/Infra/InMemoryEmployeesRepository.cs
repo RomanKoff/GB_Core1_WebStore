@@ -5,37 +5,37 @@ using WebStore.App01.Models;
 namespace WebStore.App01.Infra
 {
 
-	public class InMemoryEmployeesData
-		: IEmployeesData
+	public class InMemoryEmployeesRepository
+		: IRepositoryData<EmployeeModel>
 	{
 
-		private readonly List<EmployeeModel> _employees;
+		private readonly List<EmployeeModel> _items;
 
 
-		public InMemoryEmployeesData()
+		public InMemoryEmployeesRepository()
 		{
-			_employees = new List<EmployeeModel>(3)
+			_items = new List<EmployeeModel>
 			{
-				new EmployeeModel{
+				new EmployeeModel {
 					Id = 1,
-					FirstName = "Вася",
-					SurName = "Пупкин",
+					FirstName = "Пупкин",
+					SurName = "Вася",
 					Patronymic = "Иванович",
 					Age = 22,
 					Position = "Директор"
 				},
-				new EmployeeModel{
+				new EmployeeModel {
 					Id = 2,
-					FirstName = "Иван",
-					SurName = "Холявко",
+					FirstName = "Холявко",
+					SurName = "Иван",
 					Patronymic = "Александрович",
 					Age = 30,
 					Position = "Программист"
 				},
-				new EmployeeModel{
+				new EmployeeModel {
 					Id = 3,
-					FirstName = "Роберт",
-					SurName = "Серов",
+					FirstName = "Серов",
+					SurName = "Роберт",
 					Patronymic = "Сигизмундович",
 					Age = 50,
 					Position = "Зав. склада"
@@ -46,14 +46,14 @@ namespace WebStore.App01.Infra
 
 		public IEnumerable<EmployeeModel> GetAll()
 		{
-			return _employees;
+			return _items;
 		}
 
 
 		public EmployeeModel GetById(
 			int id)
 		{
-			return _employees.FirstOrDefault(
+			return _items.FirstOrDefault(
 				x => x.Id.Equals(id));
 		}
 
@@ -66,18 +66,18 @@ namespace WebStore.App01.Infra
 		public void AddNew(
 			EmployeeModel model)
 		{
-			model.Id = _employees.Max(x => x.Id) + 1;
-			_employees.Add(model);
+			model.Id = _items.Max(x => x.Id) + 1;
+			_items.Add(model);
 		}
 
 
 		public void Delete(
 			int id)
 		{
-			var employee = GetById(id);
-			if (employee != null)
+			var item = GetById(id);
+			if (item != null)
 			{
-				_employees.Remove(employee);
+				_items.Remove(item);
 			}
 		}
 
