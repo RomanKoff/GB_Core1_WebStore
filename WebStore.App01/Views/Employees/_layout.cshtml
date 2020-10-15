@@ -1,0 +1,15 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@section Base_HeadSection { @RenderSection("Base_HeadSection", false) }
+
+<div class="container">
+	<h2>@ViewBag.PageTitle</h2>
+
+	@RenderBody()
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+</div>
+
+@section Base_Scripts { @RenderSection("Base_Scripts", false) }

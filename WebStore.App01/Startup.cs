@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebStore.App01.Infra;
 
 namespace WebStore.App01
 {
@@ -23,8 +24,11 @@ namespace WebStore.App01
 		public void ConfigureServices(
 			IServiceCollection services)
 		{
+			services.AddRazorPages()
+				.AddRazorRuntimeCompilation();
 			services.AddMvc()
 				.AddNewtonsoftJson();
+			services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
 		}
 
 
@@ -34,7 +38,6 @@ namespace WebStore.App01
 		{
 			if (env.IsDevelopment())
 				app.UseDeveloperExceptionPage();
-
 			app.UseStaticFiles();
 			app.UseRouting();
 			app.UseEndpoints(endpoints =>
