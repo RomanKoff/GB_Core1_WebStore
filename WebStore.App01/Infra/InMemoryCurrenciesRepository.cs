@@ -106,7 +106,7 @@ namespace WebStore.App01.Infra
 		public void AddNew(
 			CurrencyModel model)
 		{
-			model.Id = _items.Max(x => x.Id) + 1;
+			model.Id = _items.Any() ? _items.Max(x => x.Id) + 1 : 1;
 			_items.Add(model);
 		}
 
