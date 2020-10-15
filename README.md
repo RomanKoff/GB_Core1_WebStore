@@ -1,3 +1,3 @@
 # GeekBrains / C# ASP.NET Core. Уровень 1
 
-Урок 2. Движок Razor
+Урок 3. Настройка приложения ASP.NET Core MVC
