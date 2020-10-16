@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebStore.App01.Infra;
+using WebStore.Domain.Entities.Interfaces;
+using WebStore.Domain.Services;
 
 namespace WebStore.App01.Controllers
 {
@@ -9,30 +10,29 @@ namespace WebStore.App01.Controllers
 	{
 
 		public abstract TEntity GetNewEntity();
-		public abstract int GetEntityId(TEntity model);
 		public abstract void CopyEntityContent(TEntity inModel, TEntity outModel);
 
 
-		private readonly IRepositoryData<TEntity> _repository;
+		private readonly IDataService<TEntity> _service;
 
 
 		public _CrudControllerPrototype(
-			IRepositoryData<TEntity> repository)
+			IDataService<TEntity> service)
 		{
-			_repository = repository;
+			_service = service;
 		}
 
 
 		public virtual IActionResult Index()
 		{
-			return View(_repository.GetAll());
+			return View(_service.GetAll());
 		}
 
 
 		public virtual IActionResult Details(
 			int id)
 		{
-			var model = _repository.GetById(id);
+			var model = _service.GetById(id);
 			if (model == null)
 				return NotFound();
 			return View(model);
@@ -45,7 +45,7 @@ namespace WebStore.App01.Controllers
 			TEntity model;
 			if (id.HasValue)
 			{
-				model = _repository.GetById(id.Value);
+				model = _service.GetById(id.Value);
 				if (model == null)
 					return NotFound();
 			}
@@ -58,17 +58,17 @@ namespace WebStore.App01.Controllers
 		public virtual IActionResult Edit(
 			TEntity model)
 		{
-			int id = GetEntityId(model);
+			int id = (model as IEntityBase).Id;
 			if (id > 0)
 			{
-				var dbItem = _repository.GetById(id);
+				var dbItem = _service.GetById(id);
 				if (dbItem == null)
 					return NotFound();
 				CopyEntityContent(model, dbItem);
 			}
 			else
-				_repository.AddNew(model);
-			_repository.Commit();
+				_service.AddNew(model);
+			_service.Commit();
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -76,7 +76,7 @@ namespace WebStore.App01.Controllers
 		public virtual IActionResult Delete(
 			int id)
 		{
-			_repository.Delete(id);
+			_service.Delete(id);
 			return RedirectToAction(nameof(Index));
 		}
 

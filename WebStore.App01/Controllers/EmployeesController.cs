@@ -1,41 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebStore.App01.Infra;
-using WebStore.App01.Models;
+using WebStore.Domain.Entities;
+using WebStore.Domain.Services;
 
 namespace WebStore.App01.Controllers
 {
 
 	[Route("users")]
 	public class EmployeesController
-		: _CrudControllerPrototype<EmployeeModel>
+		: _CrudControllerPrototype<Employee>
 	{
 
 		public EmployeesController(
-			IRepositoryData<EmployeeModel> repository)
-			: base(repository)
+			IDataService<Employee> service)
+			: base(service)
 		{
 		}
 
 
 		[NonAction]
-		public override EmployeeModel GetNewEntity()
+		public override Employee GetNewEntity()
 		{
-			return new EmployeeModel();
-		}
-
-
-		[NonAction]
-		public override int GetEntityId(
-			EmployeeModel model)
-		{
-			return model.Id;
+			return new Employee();
 		}
 
 
 		[NonAction]
 		public override void CopyEntityContent(
-			EmployeeModel inModel,
-			EmployeeModel outModel)
+			Employee inModel,
+			Employee outModel)
 		{
 			outModel.FirstName = inModel.FirstName;
 			outModel.SurName = inModel.SurName;
@@ -63,7 +55,7 @@ namespace WebStore.App01.Controllers
 
 		[HttpPost]
 		[Route("edit/{id?}")]
-		public override IActionResult Edit(EmployeeModel model)
+		public override IActionResult Edit(Employee model)
 		{ return base.Edit(model); }
 
 

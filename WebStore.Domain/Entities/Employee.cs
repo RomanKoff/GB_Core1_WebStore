@@ -1,9 +1,12 @@
-﻿namespace WebStore.App01.Models
+﻿using WebStore.Domain.Entities.Interfaces;
+
+namespace WebStore.Domain.Entities
 {
 
-	public class EmployeeModel
+	public class Employee
+		: _EntityBase,
+		IEntityBase
 	{
-		public int Id { get; set; }
 		public string FirstName { get; set; }
 		public string SurName { get; set; }
 		public string Patronymic { get; set; }

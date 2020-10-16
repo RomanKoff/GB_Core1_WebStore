@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WebStore.App01.Models;
+using WebStore.Domain.Entities;
 
-namespace WebStore.App01.Infra
+namespace WebStore.Domain.Services
 {
 
-	public class InMemoryEmployeesRepository
-		: IRepositoryData<EmployeeModel>
+	public class InMemoryEmployeesService
+		: IDataService<Employee>
 	{
 
-		private readonly List<EmployeeModel> _items;
+		private readonly List<Employee> _items;
 
 
-		public InMemoryEmployeesRepository()
+		public InMemoryEmployeesService()
 		{
-			_items = new List<EmployeeModel>
+			_items = new List<Employee>
 			{
-				new EmployeeModel {
+				new Employee {
 					Id = 1,
 					FirstName = "Пупкин",
 					SurName = "Вася",
@@ -24,7 +24,7 @@ namespace WebStore.App01.Infra
 					Age = 22,
 					Position = "Директор"
 				},
-				new EmployeeModel {
+				new Employee {
 					Id = 2,
 					FirstName = "Холявко",
 					SurName = "Иван",
@@ -32,7 +32,7 @@ namespace WebStore.App01.Infra
 					Age = 30,
 					Position = "Программист"
 				},
-				new EmployeeModel {
+				new Employee {
 					Id = 3,
 					FirstName = "Серов",
 					SurName = "Роберт",
@@ -44,13 +44,13 @@ namespace WebStore.App01.Infra
 		}
 
 
-		public IEnumerable<EmployeeModel> GetAll()
+		public IEnumerable<Employee> GetAll()
 		{
 			return _items;
 		}
 
 
-		public EmployeeModel GetById(
+		public Employee GetById(
 			int id)
 		{
 			return _items.FirstOrDefault(
@@ -64,7 +64,7 @@ namespace WebStore.App01.Infra
 
 
 		public void AddNew(
-			EmployeeModel model)
+			Employee model)
 		{
 			model.Id = _items.Any() ? _items.Max(x => x.Id) + 1 : 1;
 			_items.Add(model);

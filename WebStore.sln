@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Info", "_Info", "{C803DC45
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Domain", "WebStore.Domain\WebStore.Domain.csproj", "{CF0BE5E7-61CF-4EAC-AEEF-545CB8307452}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{184320F7-23B2-4C04-9414-F6AB3F93D1BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{184320F7-23B2-4C04-9414-F6AB3F93D1BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{184320F7-23B2-4C04-9414-F6AB3F93D1BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0BE5E7-61CF-4EAC-AEEF-545CB8307452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0BE5E7-61CF-4EAC-AEEF-545CB8307452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0BE5E7-61CF-4EAC-AEEF-545CB8307452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0BE5E7-61CF-4EAC-AEEF-545CB8307452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

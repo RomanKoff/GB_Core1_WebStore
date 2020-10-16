@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WebStore.App01.Models;
+using WebStore.Domain.Entities;
 
-namespace WebStore.App01.Infra
+namespace WebStore.Domain.Services
 {
 
-	public class InMemoryCurrenciesRepository
-		: IRepositoryData<CurrencyModel>
+	public class InMemoryCurrenciesService
+		: IDataService<Currency>
 	{
 
-		private readonly List<CurrencyModel> _items;
+		private readonly List<Currency> _items;
 
 
-		public InMemoryCurrenciesRepository()
+		public InMemoryCurrenciesService()
 		{
-			_items = new List<CurrencyModel>
+			_items = new List<Currency>
 			{
-				new CurrencyModel {
+				new Currency {
 					Id = 1,
 					Country = "Евросоюз",
 					Name = "Евро",
@@ -24,7 +24,7 @@ namespace WebStore.App01.Infra
 					Unit = "EUR",
 					Rate = 90.8
 				},
-				new CurrencyModel {
+				new Currency {
 					Id = 2,
 					Country = "Великобритания",
 					Name = "Фунт",
@@ -32,7 +32,7 @@ namespace WebStore.App01.Infra
 					Unit = "GBP",
 					Rate = 100.1
 				},
-				new CurrencyModel {
+				new Currency {
 					Id = 3,
 					Country = "Канада",
 					Name = "Доллар",
@@ -40,7 +40,7 @@ namespace WebStore.App01.Infra
 					Unit = "CAD",
 					Rate = 58.81
 				},
-				new CurrencyModel {
+				new Currency {
 					Id = 4,
 					Country = "Китай",
 					Name = "Юань",
@@ -48,7 +48,7 @@ namespace WebStore.App01.Infra
 					Unit = "CNY",
 					Rate = 11.47
 				},
-				new CurrencyModel {
+				new Currency {
 					Id = 5,
 					Country = "Лихтенштейн",
 					Name = "Франк",
@@ -56,7 +56,7 @@ namespace WebStore.App01.Infra
 					Unit = "CHF",
 					Rate = 84.47
 				},
-				new CurrencyModel {
+				new Currency {
 					Id = 6,
 					Country = "Россия",
 					Name = "Рубль",
@@ -64,7 +64,7 @@ namespace WebStore.App01.Infra
 					Unit = "RUB",
 					Rate = 1
 				},
-				new CurrencyModel {
+				new Currency {
 					Id = 7,
 					Country = "США",
 					Name = "Доллар",
@@ -72,7 +72,7 @@ namespace WebStore.App01.Infra
 					Unit = "USD",
 					Rate = 77.28
 				},
-				new CurrencyModel {
+				new Currency {
 					Id = 8,
 					Country = "Япония",
 					Name = "Иена",
@@ -84,13 +84,13 @@ namespace WebStore.App01.Infra
 		}
 
 
-		public IEnumerable<CurrencyModel> GetAll()
+		public IEnumerable<Currency> GetAll()
 		{
 			return _items;
 		}
 
 
-		public CurrencyModel GetById(
+		public Currency GetById(
 			int id)
 		{
 			return _items.FirstOrDefault(
@@ -104,7 +104,7 @@ namespace WebStore.App01.Infra
 
 
 		public void AddNew(
-			CurrencyModel model)
+			Currency model)
 		{
 			model.Id = _items.Any() ? _items.Max(x => x.Id) + 1 : 1;
 			_items.Add(model);

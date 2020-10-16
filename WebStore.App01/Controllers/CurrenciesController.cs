@@ -1,41 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebStore.App01.Infra;
-using WebStore.App01.Models;
+using WebStore.Domain.Entities;
+using WebStore.Domain.Services;
 
 namespace WebStore.App01.Controllers
 {
 
 	[Route("currencies")]
 	public class CurrenciesController
-		: _CrudControllerPrototype<CurrencyModel>
+		: _CrudControllerPrototype<Currency>
 	{
 
 		public CurrenciesController(
-			IRepositoryData<CurrencyModel> repository)
-			: base(repository)
+			IDataService<Currency> service)
+			: base(service)
 		{
 		}
 
 
 		[NonAction]
-		public override CurrencyModel GetNewEntity()
+		public override Currency GetNewEntity()
 		{
-			return new CurrencyModel();
-		}
-
-
-		[NonAction]
-		public override int GetEntityId(
-			CurrencyModel model)
-		{
-			return model.Id;
+			return new Currency();
 		}
 
 
 		[NonAction]
 		public override void CopyEntityContent(
-			CurrencyModel inModel,
-			CurrencyModel outModel)
+			Currency inModel,
+			Currency outModel)
 		{
 			outModel.Char = inModel.Char;
 			outModel.Country = inModel.Country;
@@ -63,7 +55,7 @@ namespace WebStore.App01.Controllers
 
 		[HttpPost]
 		[Route("edit/{id?}")]
-		public override IActionResult Edit(CurrencyModel model)
+		public override IActionResult Edit(Currency model)
 		{ return base.Edit(model); }
 
 

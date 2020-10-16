@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WebStore.App01.Infra;
-using WebStore.App01.Models;
+using WebStore.Domain.Entities;
+using WebStore.Domain.Services;
 
 namespace WebStore.App01
 {
@@ -29,8 +29,8 @@ namespace WebStore.App01
 				.AddRazorRuntimeCompilation();
 			services.AddMvc()
 				.AddNewtonsoftJson();
-			services.AddSingleton<IRepositoryData<EmployeeModel>, InMemoryEmployeesRepository>();
-			services.AddSingleton<IRepositoryData<CurrencyModel>, InMemoryCurrenciesRepository>();
+			services.AddSingleton<IDataService<Employee>, InMemoryEmployeesService>();
+			services.AddSingleton<IDataService<Currency>, InMemoryCurrenciesService>();
 		}
 
 

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace WebStore.App01.Infra
+namespace WebStore.Domain.Services
 {
 
-	public interface IRepositoryData<TEntity>
+	public interface IDataService<TEntity>
 	{
 		IEnumerable<TEntity> GetAll();
 		TEntity GetById(int id);
