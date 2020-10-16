@@ -27,6 +27,8 @@ namespace WebStore.App01
 		{
 			services.AddRazorPages()
 				.AddRazorRuntimeCompilation();
+			services.AddControllersWithViews()
+				.AddRazorRuntimeCompilation();
 			services.AddMvc()
 				.AddNewtonsoftJson();
 			services.AddSingleton<IDataService<Employee>, InMemoryEmployeesService>();

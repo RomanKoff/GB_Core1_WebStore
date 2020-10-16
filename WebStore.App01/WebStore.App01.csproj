@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>60c3cdd0-b4bd-4149-8e86-e96e97a126ca</UserSecretsId>
+    <OutputType>Exe</OutputType>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+    <StartupObject>WebStore.App01.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
