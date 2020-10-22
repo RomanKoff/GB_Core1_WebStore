@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace WebStore.App01.Controllers
 {
@@ -61,16 +60,18 @@ namespace WebStore.App01.Controllers
 		}
 
 
-		public IActionResult ProductDetails()
-		{
-			return View();
-		}
+		// moved to CatalogController
+		//public IActionResult ProductDetails()
+		//{
+		//	return View();
+		//}
 
 
-		public IActionResult Shop()
-		{
-			return View();
-		}
+		// moved to CatalogController
+		//public IActionResult Shop()
+		//{
+		//	return View();
+		//}
 
 	}
 
