@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebStore.DAL;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Services;
 using WebStore.Domain.Services.Interfaces;
@@ -35,6 +37,9 @@ namespace WebStore.App01
 			services.AddSingleton<IDataService<Employee>, InMemoryEmployeesService>();
 			services.AddSingleton<IDataService<Currency>, InMemoryCurrenciesService>();
 			services.AddSingleton<IProductService, InMemoryProductService>();
+			services.AddDbContext<WebStoreContext>(
+				options => options.UseSqlServer(
+					Configuration.GetConnectionString("DefaultConnection")));
 		}
 
 

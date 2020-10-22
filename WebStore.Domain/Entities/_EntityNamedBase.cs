@@ -4,9 +4,9 @@ namespace WebStore.Domain.Entities
 {
 
 	public abstract class _EntityNamedBase
-		: IEntityNamed
+		: _EntityBase,
+		IEntityNamed
 	{
-		public int Id { get; set; }
 		public string Name { get; set; }
 	}
 
