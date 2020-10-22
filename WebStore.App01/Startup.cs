@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Services;
+using WebStore.Domain.Services.Interfaces;
 
 namespace WebStore.App01
 {
@@ -33,6 +34,7 @@ namespace WebStore.App01
 				.AddNewtonsoftJson();
 			services.AddSingleton<IDataService<Employee>, InMemoryEmployeesService>();
 			services.AddSingleton<IDataService<Currency>, InMemoryCurrenciesService>();
+			services.AddSingleton<IProductService, InMemoryProductService>();
 		}
 
 
