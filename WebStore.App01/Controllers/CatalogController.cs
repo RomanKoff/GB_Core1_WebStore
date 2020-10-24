@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using WebStore.App01.Services.Interfaces;
 using WebStore.App01.ViewModels;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Services.Interfaces;
 
 namespace WebStore.App01.Controllers
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebStore.Domain.Entities;
 
-namespace WebStore.Domain.Services.Interfaces
+namespace WebStore.App01.Services.Interfaces
 {
 
 	public interface IProductService

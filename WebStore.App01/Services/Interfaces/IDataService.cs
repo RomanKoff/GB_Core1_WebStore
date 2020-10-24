@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebStore.Domain.Services.Interfaces
+namespace WebStore.App01.Services.Interfaces
 {
 
 	public interface IDataService<TEntity>

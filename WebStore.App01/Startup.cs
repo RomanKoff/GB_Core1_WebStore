@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebStore.App01.Services;
+using WebStore.App01.Services.Interfaces;
 using WebStore.DAL;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Services;
-using WebStore.Domain.Services.Interfaces;
 
 namespace WebStore.App01
 {
@@ -36,7 +36,9 @@ namespace WebStore.App01
 				.AddNewtonsoftJson();
 			services.AddSingleton<IDataService<Employee>, InMemoryEmployeesService>();
 			services.AddSingleton<IDataService<Currency>, InMemoryCurrenciesService>();
-			services.AddSingleton<IProductService, InMemoryProductService>();
+
+			services.AddScoped<IProductService, SqlProductService>();
+
 			services.AddDbContext<WebStoreContext>(
 				options => options.UseSqlServer(
 					Configuration.GetConnectionString("DefaultConnection")));
