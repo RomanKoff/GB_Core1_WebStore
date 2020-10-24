@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Services.Interfaces;
+using WebStore.App01.Services.Interfaces;
 
-namespace WebStore.Domain.Services
+namespace WebStore.App01.Services
 {
 
 	public class InMemoryCurrenciesService
