@@ -48,10 +48,10 @@ namespace WebStore.App01.Controllers
 		}
 
 
-		public IActionResult Login()
-		{
-			return View();
-		}
+		//public IActionResult Login()
+		//{
+		//	return View();
+		//}
 
 
 		public IActionResult Error404()
