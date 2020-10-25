@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WebStore.Domain.Entities;
 
 namespace WebStore.DAL
 {
 
 	public class WebStoreContext
-		: DbContext
+		: IdentityDbContext<User>
 	{
 		public DbSet<Product> Products { get; set; }
 		public DbSet<Category> Categories { get; set; }

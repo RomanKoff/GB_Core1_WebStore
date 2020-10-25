@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebStore.App01.Services.Interfaces;
 using WebStore.Domain.Entities;
 
 namespace WebStore.App01.Controllers
 {
 
+	[Authorize]
 	[Route("currencies")]
 	public class CurrenciesController
 		: _CrudControllerPrototype<Currency>
