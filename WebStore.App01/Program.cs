@@ -1,9 +1,14 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
+using System.Threading;
 using WebStore.DAL;
+using WebStore.Domain.Entities;
 
 namespace WebStore.App01
 {
@@ -14,9 +19,6 @@ namespace WebStore.App01
 		public static void Main(
 			string[] args)
 		{
-			// BuildWebHost(args).Run();
-			// // CreateHostBuilder(args).Build().Run();
-
 			var host = CreateHostBuilder(args).Build();
 			using (var scope = host.Services.CreateScope())
 			{
@@ -25,6 +27,7 @@ namespace WebStore.App01
 				{
 					var context = services.GetRequiredService<WebStoreContext>();
 					DbInitializer.Initialize(context);
+					DbInitializer.InitializeUsers(context);					
 				}
 				catch (Exception ex)
 				{
@@ -34,13 +37,6 @@ namespace WebStore.App01
 			}
 			host.Run();
 		}
-
-
-		//public static IWebHost BuildWebHost(
-		//	string[] args) =>
-		//		WebHost.CreateDefaultBuilder(args)
-		//			.UseStartup<Startup>()
-		//			.Build();
 
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>

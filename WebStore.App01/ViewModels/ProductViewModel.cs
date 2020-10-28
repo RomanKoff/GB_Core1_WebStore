@@ -12,6 +12,8 @@ namespace WebStore.App01.ViewModels
 		public int Order { get; set; }
 		public string ImageUrl { get; set; }
 		public decimal Price { get; set; }
+		public string Category { get; set; }
+		public string Brand { get; set; }
 	}
 
 }
