@@ -196,7 +196,7 @@ namespace WebStore.DAL.Migrations
                     Name = table.Column<string>(nullable: true),
                     Order = table.Column<int>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
-                    BrandId = table.Column<int>(nullable: true),
+                    BrandId = table.Column<int>(nullable: false),
                     ImageUrl = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false)
                 },
@@ -208,7 +208,7 @@ namespace WebStore.DAL.Migrations
                         column: x => x.BrandId,
                         principalTable: "Brands",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,

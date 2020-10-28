@@ -21,7 +21,10 @@
 		{
 			<tr>
 				<td>
-					<a asp-action="Edit" asp-route-id="@item.Id" title="редактировать"><i class="text-success glyphicon glyphicon-edit"></i></a>
+					@if (User.IsInRole("Administrators"))
+					{<a asp-action="Edit" asp-route-id="@item.Id" title="редактировать"><i class="text-success glyphicon glyphicon-edit"></i></a>}
+					else
+					{ <i class="text-muted glyphicon glyphicon-edit"></i>}
 				</td>
 				<td>
 					<a asp-action="Details" asp-route-id="@item.Id" title="просмотр">
@@ -32,7 +35,10 @@
 				</td>
 				<td>@item.Position</td>
 				<td>
-					<a asp-action="Delete" asp-route-id="@item.Id" title="удалить"><i class="text-danger glyphicon glyphicon-trash"></i></a>
+					@if (User.IsInRole("Administrators"))
+					{<a asp-action="Delete" asp-route-id="@item.Id" title="удалить"><i class="text-danger glyphicon glyphicon-trash"></i></a>}
+					else
+					{ <i class="text-muted glyphicon glyphicon-trash"></i>}
 				</td>
 			</tr>
 		}

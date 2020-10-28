@@ -31,8 +31,7 @@ namespace WebStore.App01.Services
 					.ToList();
 			if (filter.BrandId.HasValue)
 				products = products.Where(
-					x => x.BrandId.HasValue
-					&& x.BrandId.Value.Equals(filter.BrandId.Value))
+					x => x.BrandId.Equals(filter.BrandId.Value))
 					.ToList();
 			return products;
 		}

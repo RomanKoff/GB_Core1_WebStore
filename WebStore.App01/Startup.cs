@@ -1,15 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 using WebStore.App01.Services;
 using WebStore.App01.Services.Interfaces;
 using WebStore.DAL;
 using WebStore.Domain.Entities;
+using WebStore.Infrastructure.Services;
 
 namespace WebStore.App01
 {
@@ -41,6 +42,9 @@ namespace WebStore.App01
 			services.AddSingleton<IDataService<Currency>, InMemoryCurrenciesService>();
 
 			services.AddScoped<IProductService, SqlProductService>();
+
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+			services.AddScoped<ICartService, CookieCartService>();
 
 			services.AddDbContext<WebStoreContext>(
 				options => options.UseSqlServer(

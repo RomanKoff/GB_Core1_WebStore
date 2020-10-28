@@ -51,17 +51,20 @@ namespace WebStore.App01.Controllers
 
 		[HttpGet]
 		[Route("edit/{id?}")]
+		[Authorize(Roles = "Administrators")]
 		public override IActionResult Edit(int? id)
 		{ return base.Edit(id); }
 
 
 		[HttpPost]
 		[Route("edit/{id?}")]
+		[Authorize(Roles = "Administrators")]
 		public override IActionResult Edit(Employee model)
 		{ return base.Edit(model); }
 
 
 		[Route("delete/{id}")]
+		[Authorize(Roles = "Administrators")]
 		public override IActionResult Delete(int id)
 		{ return base.Delete(id); }
 

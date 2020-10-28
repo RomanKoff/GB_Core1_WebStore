@@ -77,6 +77,7 @@ namespace WebStore.App01.Controllers
 			if (createResult.Succeeded)
 			{
 				await _signInManager.SignInAsync(user, false);
+				await _userManager.AddToRoleAsync(user, "Users");
 				return RedirectToAction("Index", "Home");
 			}
 			foreach (var identityError in createResult.Errors)

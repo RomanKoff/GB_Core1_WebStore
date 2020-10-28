@@ -37,11 +37,12 @@ namespace WebStore.App01.Services
 			ProductFilter filter)
 		{
 			var contextProducts = _context.Products.AsQueryable();
-			if (filter.BrandId.HasValue)
-				contextProducts.Where(c => c.BrandId.HasValue
-					&& c.BrandId.Value.Equals(filter.BrandId.Value));
 			if (filter.CategoryId.HasValue)
-				contextProducts = contextProducts.Where(c => c.CategoryId.Equals(filter.CategoryId.Value));
+				contextProducts = contextProducts.Where(
+					c => c.CategoryId.Equals(filter.CategoryId.Value));
+			if (filter.BrandId.HasValue)
+				contextProducts = contextProducts.Where(
+					c => c.BrandId.Equals(filter.BrandId.Value));			
 			return contextProducts.ToList();
 		}
 
